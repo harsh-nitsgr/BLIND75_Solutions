@@ -1,21 +1,3 @@
-////shows error on two elememts
-// class Solution {
-// public:
-//     int findMin(vector<int>& nums) {
-                  
-//         return findMinTemp(nums,0,nums.size()-1);
-//     }
-    
-//     int findMinTemp(vector<int>& nums,int start,int end){
-        
-//         if(start>=end) return nums[end]; 
-//         int mid=start+(end-start)/2;
-//         if(nums[mid]>nums[mid+1]) return nums[mid+1];
-//         return min(findMinTemp(nums,mid+1,end),findMinTemp(nums,start,mid-1));
-      
-//     }
-// };
-
 class Solution{
   public:
         int findMin(vector<int>& nums){
