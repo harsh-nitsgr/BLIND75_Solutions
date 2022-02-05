@@ -2,7 +2,7 @@ class Solution {
 public:
     int combinationSum4(vector<int>& nums, int target) {
         
-        unsigned int* dp= new unsigned int[target+1];
+        uint32_t* dp= new uint32_t[target+1];
         dp[0]=1;
         
         for(int i=1;i<=target;i++){
