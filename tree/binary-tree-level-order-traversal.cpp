@@ -14,18 +14,15 @@ class Solution {
 public:
     vector<vector<int>> v;
     vector<vector<int>> levelOrder(TreeNode* root){
-        
         util(root,0);
         return v;
     }
     
     void util(TreeNode* root,int level){
-    
         if(root==NULL) return;
         if(v.size()==level) v.push_back(vector<int>());
         
         v[level].push_back(root->val);
-        
         util(root->left,level+1);
         util(root->right,level+1);
     }
