@@ -1,14 +1,17 @@
 class Solution {
 public:
-    int maxProfit(vector<int>& nums) {
-        int n=nums.size();
-        int prev=nums[0]; 
-        int ans=INT_MIN;
-        for(int i=1;i<n;i++){
-            ans=max(ans,nums[i]-prev); 
-            prev=min(prev,nums[i]);
-        }
-        return (ans < 0) ? 0:ans;
+    int maxProfit(vector<int>& prices) {
         
+        int profit=0;
+        int prevMin=prices[0];
+        
+        // to get maxProfit we have to find minimum upto the number we have traversed
+        for(auto &price:prices){
+            if(prevMin>price)prevMin=price;
+            else if(profit<(price-prevMin)) profit=price-prevMin;
+            //need not to check when the prevMin is being updated 
+            //because that time it will be zero anyway
+        }
+        return profit;
     }
 };
