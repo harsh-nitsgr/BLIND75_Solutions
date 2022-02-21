@@ -10,10 +10,10 @@ public:
 		
         int end0=intervals[0][1];
 
-		for(auto &i: intervals) {
-			if(end0 >i[0]) ans++;
-            else end0=i[1];
-		}
+	for(auto &i: intervals) {
+		if(end0 >i[0]) ans++;
+        else end0=i[1];
+	}
 		return ans; 
 	}
 };
