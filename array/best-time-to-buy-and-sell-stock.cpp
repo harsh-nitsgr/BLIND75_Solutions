@@ -2,15 +2,17 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices) {
         
+        int Max=0;
+        int Min=0;
         int profit=0;
-        int prevMin=prices[0];
         
-        // to get maxProfit we have to find minimum upto the number we have traversed
-        for(auto &price:prices){
-            if(prevMin>price)prevMin=price;
-            else if(profit<(price-prevMin)) profit=price-prevMin;
-            //need not to check when the prevMin is being updated 
-            //because that time it will be zero anyway
+        for(int i=0;i<prices.size();i++){
+            if(prices[i]>prices[Max])Max=i;
+            if(prices[i]<prices[Min])Min=i;
+            
+            if(Min>Max)Max=i; 
+            // if at any point index of min in greater than index of max so that max should be left
+            profit=max(profit,prices[Max]-prices[Min]);
         }
         return profit;
     }
